@@ -3,6 +3,7 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseDriver {
@@ -22,7 +23,15 @@ public class BaseDriver {
             switch (threadBrowserName.get()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    threadDriver.set(new ChromeDriver());
+                    if (!runningFromIntelliJ()){
+
+                        ChromeOptions options= new ChromeOptions();
+                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400","--disable-cookies");
+                        threadDriver.set(new ChromeDriver(options));
+                    }
+                    else {
+                        threadDriver.set(new ChromeDriver());
+                    }
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
@@ -42,6 +51,13 @@ public class BaseDriver {
             driver = null;
             threadDriver.set(driver);
         }
+    }
+
+    public static boolean runningFromIntelliJ()
+    {
+        String classPath= System.getProperty("java.class.path");
+        return classPath.contains("idea_rt.jar");
+
     }
 
 

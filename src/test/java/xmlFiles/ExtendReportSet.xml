@@ -13,7 +13,7 @@
         <protocol>https</protocol>
 
         <!-- title of the document -->
-        <documentTitle>HST_Technik extend report</documentTitle>
+        <documentTitle>Automation Exercise extend report</documentTitle>
 
         <!-- report name - displayed at top-nav -->
         <reportName>Website report</reportName>

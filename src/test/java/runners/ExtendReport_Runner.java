@@ -13,7 +13,7 @@ import utilities.BaseDriver;
         plugin = {
                 "com.cucumber.listener.ExtentCucumberFormatter:target/ExtentReport/ExtentReportRegression.html"
 
-////button[@jsname='tWT92d']
+
         }
 )
 
@@ -25,7 +25,7 @@ public class ExtendReport_Runner extends AbstractTestNGCucumberTests {
     {
         Reporter.loadXMLConfig("src/test/java/xmlFiles/ExtendReportSet.xml");
         Reporter.setSystemInfo("User Name","Ersin");
-        Reporter.setSystemInfo("Application Name","HST_Technik Website");
+        Reporter.setSystemInfo("Application Name","Automation Exercise Website");
         Reporter.setSystemInfo("Operating System Info",System.getProperty("os.name").toString());
         Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
 

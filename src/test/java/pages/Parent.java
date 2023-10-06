@@ -38,6 +38,11 @@ public class Parent {
     }
 
 
+    public int changeToIntiger(WebElement element) {
 
 
+        return Integer.parseInt((element.getText()).replaceAll("[^0-9]",""));
+
+
+    }
 }
